@@ -8,7 +8,7 @@ import PortfolioOverview from './components/PortfolioOverview';
 import Comments from './components/Comments';
 import User from './components/User';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartLine, faComments, faDollarSign, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faChartLine, faComments, faDollarSign, faUser, faBell } from '@fortawesome/free-solid-svg-icons';
 
 const AppContent = () => {
   const { theme } = useTheme();
@@ -24,8 +24,9 @@ const AppContent = () => {
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-black dark:text-white relative">
       <Router>
-        <div className="absolute top-4 right-4">
+      <div className="absolute top-4 right-4 space-x-4">
           <ThemeToggle />
+          <FontAwesomeIcon icon={faBell} className="text-black dark:text-white" />
         </div>
         <div className="flex flex-col justify-center items-center min-h-screen">
           <Routes>
