@@ -36,12 +36,12 @@ const Comments = () => {
           type="text"
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
-          className="border border-gray-300 dark:border-gray-700 p-2 w-full bg-white dark:bg-gray-800 text-black dark:text-white"
+          className="border border-gray-300 dark:border-gray-700 p-2 w-full bg-white dark:bg-gray-800 text-black dark:text-white rounded-md"
           placeholder="Add a comment"
         />
         <button
           type="submit"
-          className={`mt-2 p-2 w-full ${newComment.trim() ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-500 cursor-not-allowed'}`}
+          className={`mt-2 p-2 w-full rounded-md ${newComment.trim() ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-500 cursor-not-allowed'}`}
           disabled={!newComment.trim()}
         >
           Add Comment
