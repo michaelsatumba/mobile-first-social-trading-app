@@ -1,4 +1,3 @@
-// src/App.js
 import { ThemeProvider, useTheme } from './ThemeContext';
 import './index.css';
 import ThemeToggle from './components/ThemeToggle';
@@ -7,6 +6,9 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import MainFeed from './components/MainFeed';
 import PortfolioOverview from './components/PortfolioOverview';
 import Comments from './components/Comments';
+import User from './components/User';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChartLine, faComments, faDollarSign, faUser } from '@fortawesome/free-solid-svg-icons';
 
 const AppContent = () => {
   const { theme } = useTheme();
@@ -20,21 +22,43 @@ const AppContent = () => {
   }, [theme]);
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-black dark:text-white">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-black dark:text-white relative">
       <Router>
-        <ThemeToggle />
-        <nav className="p-4 bg-gray-200 dark:bg-gray-800">
-          <ul className="flex justify-center space-x-4">
-            <li><Link to="/" className="text-black dark:text-white">Main Feed</Link></li>
-            <li><Link to="/portfolio" className="text-black dark:text-white">Portfolio Overview</Link></li>
-            <li><Link to="/comments" className="text-black dark:text-white">Comments</Link></li>
+        <div className="absolute top-4 right-4">
+          <ThemeToggle />
+        </div>
+        <div className="flex flex-col justify-center items-center min-h-screen">
+          <Routes>
+            <Route path="/" element={<MainFeed theme={theme} />} />
+            <Route path="/portfolio" element={<PortfolioOverview theme={theme} />} />
+            <Route path="/comments" element={<Comments />} />
+            <Route path="/user" element={<User />} />
+          </Routes>
+        </div>
+        <nav className="absolute bottom-0 w-full">
+          <ul className="flex justify-around bg-gray-200 dark:bg-gray-800 p-4">
+            <li>
+              <Link to="/" className="text-black dark:text-white">
+                <FontAwesomeIcon icon={faChartLine} />
+              </Link>
+            </li>
+            <li>
+              <Link to="/portfolio" className="text-black dark:text-white">
+                <FontAwesomeIcon icon={faDollarSign} />
+              </Link>
+            </li>
+            <li>
+              <Link to="/comments" className="text-black dark:text-white">
+                <FontAwesomeIcon icon={faComments} />
+              </Link>
+            </li>
+            <li>
+              <Link to="/user" className="text-black dark:text-white">
+                <FontAwesomeIcon icon={faUser} />
+              </Link>
+            </li>
           </ul>
         </nav>
-        <Routes>
-          <Route path="/" element={<MainFeed />} />
-          <Route path="/portfolio" element={<PortfolioOverview />} />
-          <Route path="/comments" element={<Comments />} />
-        </Routes>
       </Router>
     </div>
   );
