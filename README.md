@@ -13,7 +13,7 @@ Testing on iPhone SE on dev tools
 <br>
 Feature 1: I would have created a notification page.<br>
 Feature 2: I would have added more stats on the user page.<br>
-Code Refactoring: I would have spent more time refractoring code<br>
+Code Refactoring: I would have spent more time refractoring the code.<br>
 Testing: I would have done more unit testing.<br>
 Documentation: I would have improved the documentation for this project.<br>
 
