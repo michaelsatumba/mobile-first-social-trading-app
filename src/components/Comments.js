@@ -5,6 +5,21 @@ const Comments = () => {
     { id: 1, text: 'Great project!', user: 'User1' },
     { id: 2, text: 'Looking forward to more updates.', user: 'User2' },
   ]);
+  const [newComment, setNewComment] = useState('');
+
+  const handleAddComment = (e) => {
+    e.preventDefault();
+    if (newComment.trim() === '') return;
+
+    const newCommentObj = {
+      id: comments.length + 1,
+      text: newComment,
+      user: 'User3', // Replace with dynamic user if available
+    };
+
+    setComments([...comments, newCommentObj]);
+    setNewComment('');
+  };
 
   return (
     <div className="p-4 bg-white dark:bg-gray-900 text-black dark:text-white">
@@ -16,6 +31,22 @@ const Comments = () => {
           </li>
         ))}
       </ul>
+      <form onSubmit={handleAddComment} className="mt-4">
+        <input
+          type="text"
+          value={newComment}
+          onChange={(e) => setNewComment(e.target.value)}
+          className="border border-gray-300 dark:border-gray-700 p-2 w-full bg-white dark:bg-gray-800 text-black dark:text-white"
+          placeholder="Add a comment"
+        />
+        <button
+          type="submit"
+          className={`mt-2 p-2 w-full ${newComment.trim() ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-500 cursor-not-allowed'}`}
+          disabled={!newComment.trim()}
+        >
+          Add Comment
+        </button>
+      </form>
     </div>
   );
 };
