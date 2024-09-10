@@ -6,7 +6,7 @@ I looked at different mobile apps to seek design inspiration.
 
 **Assumptions**
 <br>
-I was allowed to use React and TailwindCSS
+I was allowed to use React and TailwindCSS<br>
 Testing on iPhone SE on dev tools
 
 **Additional Features and Improvements**
