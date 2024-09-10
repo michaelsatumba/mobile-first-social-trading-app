@@ -24,7 +24,7 @@ const AppContent = () => {
       <Router>
         <ThemeToggle />
         <nav className="p-4 bg-gray-200 dark:bg-gray-800">
-          <ul className="flex space-x-4">
+          <ul className="flex justify-center space-x-4">
             <li><Link to="/" className="text-black dark:text-white">Main Feed</Link></li>
             <li><Link to="/portfolio" className="text-black dark:text-white">Portfolio Overview</Link></li>
             <li><Link to="/comments" className="text-black dark:text-white">Comments</Link></li>
